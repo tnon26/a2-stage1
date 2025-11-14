@@ -586,7 +586,48 @@ section {
 .social-links {
     display: flex;
     gap: 1.5rem;
+    align-items: center;
 }
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-links a img {
+    width: 24px;
+    height: 24px;
+    display: block;
+    filter: brightness(0) saturate(100%) invert(70%) sepia(5%) saturate(500%) hue-rotate(20deg) brightness(95%) contrast(90%);
+    transition: filter 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-2px);
+}
+
+.social-links a:hover img {
+    filter: brightness(0) saturate(100%) invert(90%) sepia(5%) saturate(500%) hue-rotate(20deg) brightness(100%) contrast(100%);
+}
+
+/* Brand colors on hover */
+.social-links a[aria-label="Facebook"]:hover img {
+    filter: brightness(0) saturate(100%) invert(37%) sepia(95%) saturate(2000%) hue-rotate(200deg) brightness(95%) contrast(95%);
+}
+
+.social-links a[aria-label="Instagram"]:hover img {
+    filter: brightness(0) saturate(100%) invert(25%) sepia(95%) saturate(2000%) hue-rotate(280deg) brightness(95%) contrast(95%);
+}
+
+.social-links a[aria-label="Twitter"]:hover img {
+    filter: brightness(0) saturate(100%) invert(50%) sepia(95%) saturate(2000%) hue-rotate(180deg) brightness(95%) contrast(95%);
+}
+
 
 .footer-bottom {
     text-align: center;
