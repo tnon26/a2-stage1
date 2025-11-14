@@ -615,20 +615,6 @@ section {
     filter: brightness(0) saturate(100%) invert(90%) sepia(5%) saturate(500%) hue-rotate(20deg) brightness(100%) contrast(100%);
 }
 
-/* Brand colors on hover */
-.social-links a[aria-label="Facebook"]:hover img {
-    filter: brightness(0) saturate(100%) invert(37%) sepia(95%) saturate(2000%) hue-rotate(200deg) brightness(95%) contrast(95%);
-}
-
-.social-links a[aria-label="Instagram"]:hover img {
-    filter: brightness(0) saturate(100%) invert(25%) sepia(95%) saturate(2000%) hue-rotate(280deg) brightness(95%) contrast(95%);
-}
-
-.social-links a[aria-label="Twitter"]:hover img {
-    filter: brightness(0) saturate(100%) invert(50%) sepia(95%) saturate(2000%) hue-rotate(180deg) brightness(95%) contrast(95%);
-}
-
-
 .footer-bottom {
     text-align: center;
     padding-top: 2.5rem;
