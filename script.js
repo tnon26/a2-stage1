@@ -190,5 +190,43 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
+
+    // Initialize Toronto clock
+    initTorontoClock();
 });
+
+// Toronto Real-Time Clock
+function initTorontoClock() {
+    const clockTimeElement = document.getElementById('clock-time');
+    const clockTimezoneElement = document.querySelector('.clock-timezone');
+    
+    if (!clockTimeElement) return;
+    
+    function updateClock() {
+        // Get Toronto time (America/Toronto timezone)
+        const now = new Date();
+        const torontoTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/Toronto' }));
+        
+        // Format time as HH : MM AM/PM
+        let hours = torontoTime.getHours();
+        const minutes = torontoTime.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        
+        hours = hours % 12;
+        hours = hours ? hours : 12; // 0 should be 12
+        
+        const formattedTime = `${String(hours).padStart(2, '0')} : ${String(minutes).padStart(2, '0')} ${ampm}`;
+        clockTimeElement.textContent = formattedTime;
+        
+        // Update timezone (EST or EDT)
+        const isDST = torontoTime.getTimezoneOffset() < now.getTimezoneOffset();
+        if (clockTimezoneElement) {
+            clockTimezoneElement.textContent = isDST ? 'EDT' : 'EST';
+        }
+    }
+    
+    // Update immediately and then every second
+    updateClock();
+    setInterval(updateClock, 1000);
+}
 
